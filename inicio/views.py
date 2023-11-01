@@ -1,19 +1,12 @@
 from django.shortcuts import render,redirect
-from inicio.models import Paleta,Paciente
+from inicio.models import Paciente
 from .forms import PacienteForm, CitaForm, TratamientoForm,BusquedaForm
 def inicio(request):
     
   
     return render(request,"inicio/inicio.html",{})
 
-def paletas(request):
-    
-    paleta=Paleta(marca='wilson',descripcion='paleta de bela',anio=2022)
-    paleta.save()
-    return render(request,'inicio/paletas.html',{'paleta':paleta})
 
-def crear_paleta(request):
-    return render(request,'inicio/crear_paleta.html',{})
 
 def buscar(request):
     resultados = None
@@ -24,7 +17,7 @@ def buscar(request):
             resultados = Paciente.objects.filter(nombre__icontains=termino)  # Ejemplo de búsqueda en el campo 'nombre'
 
     return render(request, 'buscar_resultados.html', {'resultados': resultados, 'form': form})
-
+print(buscar)
 def agregar_paciente(request):
     if request.method == 'POST':
         form = PacienteForm(request.POST)
