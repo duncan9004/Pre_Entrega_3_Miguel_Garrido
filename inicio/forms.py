@@ -1,17 +1,21 @@
 from django import forms
 from .models import Paciente, Cita, Tratamiento
 
-class PacienteForm(forms.Form):
+class PacienteForm(forms.ModelForm):
     class Meta:
         model = Paciente
         fields = '__all__'
 
-class CitaForm(forms.Form):
+class CitaForm(forms.ModelForm):
     class Meta:
         model = Cita
         fields = '__all__'
 
-class TratamientoForm(forms.Form):
+class TratamientoForm(forms.ModelForm):
     class Meta:
         model = Tratamiento
         fields = '__all__'
+
+
+class BusquedaForm(forms.ModelForm):
+    termino = forms.CharField(max_length=100, required=False, label='Buscar')

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Resultados de la Búsqueda</h2>
+    <form method="get">
+        {{ form.as_p }}
+        <input type="submit" value="Buscar">
+    </form>
+    
+    {% if resultados %}
+        <ul>
+            {% for resultado in resultados %}
+                <li>{{ resultado.nombre }} - {{ resultado.otro_campo }}</li>
+                <!-- Puedes mostrar otros campos del modelo aquí -->
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No se encontraron resultados.</p>
+    {% endif %}
+{% endblock %}

@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 
-{% block h1_header %}
-    Lista de Pacientes
-{% endblock h1_header %}
+{% block content %}
+    <h2>Lista de Pacientes</h2>
+    <ul>
+        {% for paciente in pacientes %}
+            <li>{{ paciente.nombre }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
