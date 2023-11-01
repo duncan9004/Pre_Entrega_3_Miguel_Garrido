@@ -14,10 +14,10 @@ def buscar(request):
         form = BusquedaForm(request.GET)
         if form.is_valid():
             termino = form.cleaned_data.get('termino')
-            resultados = Paciente.objects.filter(nombre__icontains=termino)  # Ejemplo de búsqueda en el campo 'nombre'
-
+            resultados = Paciente.objects.filter(nombre__icontains=termino)  
+            
     return render(request, 'buscar_resultados.html', {'resultados': resultados, 'form': form})
-print(buscar)
+
 def agregar_paciente(request):
     if request.method == 'POST':
         form = PacienteForm(request.POST)
