@@ -26,15 +26,15 @@
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container px-4 px-lg-5">
                 <a class="navbar-brand" href={% url "inicio" %}>Dra. Zelmira Benzo</a>
-                
+                {% comment %} <a class="navbar-brand" href={% url "agregar_paciente" %}>agregar_paciente</a> {% endcomment %}
                 {% block content %}{% endblock %} 
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="#about">Agregar Paciente</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#about">Lista Pacientes</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#about">Mostrar Pacientes</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#about">Sobre nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link" href="agregar_paciente">Agregar Paciente</a></li>
+                        <li class="nav-item"><a class="nav-link" href="lista_pacientes">Lista Pacientes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="buscar_resultados">Mostrar Pacientes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#Sobre_Nosotros">Sobre nosotros</a></li>
                         <li class="nav-item"><a class="nav-link" href="#services">Servicios</a></li>
                         <li class="nav-item"><a class="nav-link" href="#portfolio">Casos Clínicos</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
