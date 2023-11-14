@@ -13,16 +13,18 @@ def buscar(request):
         form = BusquedaForm(request.GET)
         if form.is_valid():
             termino = form.cleaned_data.get('termino')
-            resultados = Paciente.objects.filter(nombre__icontains=termino)  
-             
-    return render(request, 'buscar_resultados.html', {'resultados': resultados, 'form': form})
+            resultados = Paciente.objects.filter(nombre__icontains=termino)
+
+
+    return render(request, 'inicio/buscar_resultados.html', {'resultados': resultados, 'form': form})
 
 def agregar_paciente(request):
     if request.method == 'POST':
         form = PacienteForm(request.POST)
         if form.is_valid():
             form.save()
-            return render('inicio/lista_pacientes')  # Redirigir a la lista de pacientes
+            # Redirigir a la lista de pacientes
+            return redirect('lista_pacientes')
     else:
         form = PacienteForm()
     return render(request, 'inicio/agregar_paciente.html', {'form': form})
@@ -30,7 +32,10 @@ def agregar_paciente(request):
 
 def lista_pacientes(request):
     pacientes = Paciente.objects.all()
-    return render(request, 'inicio/lista_pacientes.htm l', {'pacientes': pacientes})
+    return render(request, 'inicio/lista_pacientes.html', {'pacientes': pacientes})
+ 
+def sobre_nosotros(request):
+    return render(request,'inicio/sobre_nosotros.html')
 
 def cita(request):
     pacientes=Paciente.objects.all()
@@ -38,3 +43,4 @@ def cita(request):
 
 def tratamiento(request):
     pacientes=Paciente.objects.all()
+    

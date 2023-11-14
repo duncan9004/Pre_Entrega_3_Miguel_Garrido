@@ -31,16 +31,14 @@
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="agregar_paciente">Agregar Paciente</a></li>
-                        <li class="nav-item"><a class="nav-link" href="lista_pacientes">Lista Pacientes</a></li>
-                        <li class="nav-item"><a class="nav-link" href="buscar_resultados">Mostrar Pacientes</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#Sobre_Nosotros">Sobre nosotros</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#services">Servicios</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#portfolio">Casos Clínicos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'agregar_paciente' %}">Agregar Paciente</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'lista_pacientes' %}">Lista Pacientes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'buscar' %}">Buscar Pacientes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'sobre_nosotros' %}">Sobre nosotros</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
                     </ul>
                 </div>
-            </div>
+            </div>m
         </nav>
         <!-- Masthead-->
         <header class="masthead">
@@ -53,7 +51,7 @@
                         
                         
                         {% endblock h1_header%}
-
+                        
                         </h1>
                         <hr class="divider" />
                     </div>
