@@ -1,11 +1,18 @@
 from django.shortcuts import render,redirect
 from inicio.models import Paciente
 from .forms import PacienteForm, CitaForm, TratamientoForm,BusquedaForm
+from datetime import datetime
+
 
 def inicio(request):
     
   
     return render(request,"inicio/inicio.html",{})
+
+def mostrar_fecha_hora(request):
+    fecha_hora_actual = datetime.now()
+    return render(request, 'mostrar_fecha_hora.html', {'fecha_hora_actual': fecha_hora_actual})
+
 
 def buscar(request):
     resultados = None
@@ -13,6 +20,7 @@ def buscar(request):
         form = BusquedaForm(request.GET)
         if form.is_valid():
             termino = form.cleaned_data.get('termino')
+        if termino:
             resultados = Paciente.objects.filter(nombre__icontains=termino)
 
 
